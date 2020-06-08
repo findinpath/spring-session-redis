@@ -70,6 +70,26 @@ opening the browser again, the login page shouldn't be shown again and the user
 should see the secured page.
 
 
+In case that the content on the redis side needs to be checked
+use [redis-cli](https://redis.io/topics/rediscli) or any other Redis browser
+
+
+```bash
+redis-cli -p 6379 -a my_redis_password
+```
+
+Some useful redis commands for the purpose of this proof of concept project:
+
+```
+127.0.0.1:6379> keys *
+1) "spring:session:sessions:5c5c2f89-912c-4537-bdef-61b0d37bb155"
+127.0.0.1:6379> HGETALL spring:session:sessions:5c5c2f89-912c-4537-bdef-61b0d37bb155
+ 1) "creationTime"
+ 2) "\xac\xed\x00\x05sr\x00\x0ejava.lang.Long;\x8b\xe4\x90\xcc\x8f#\xdf\x02\x00\x01J\x00\x05valuexr\x00\
+...
+```
+
+
 Stop the redis master-replica docker-compose environment
 
 ```bash
