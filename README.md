@@ -75,3 +75,22 @@ Stop the redis master-replica docker-compose environment
 ```bash
 docker-compose -f docker/docker-compose.yml down
 ```
+
+
+## Miscellaneous
+
+
+### Login page
+The spring security provides by default a login page this is why this project doesn't include one.
+To see where the login page is generated, consult:
+
+https://stackoverflow.com/questions/35557484/where-is-spring-security-default-login-page-code-located/35557596#35557596
+
+### Bitnami Redis docker images
+
+Check out more details about how to setup replication on the `bitnami/redis` docker image on the page:
+
+https://hub.docker.com/r/bitnami/redis/
+
+**NOTE** that working with a volume to store the data for the redis master would allow restarting the master
+and would provide an almost seamless session experience even in case when a restart of the redis master is happening. 
