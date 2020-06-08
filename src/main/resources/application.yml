@@ -1,0 +1,19 @@
+spring:
+  security:
+    user:
+      password: password
+
+
+
+redis:
+  password: my_redis_password
+  master:
+    host: localhost
+    port: 6379
+  slaves:
+    - host: localhost
+      port: 6380
+    - host: localhost
+      port: 6381
+    - host: localhost
+      port: 6382
